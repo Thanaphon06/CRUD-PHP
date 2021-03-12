@@ -35,7 +35,7 @@
         username = '$username',
         password = '$password',
         firstname = '$firstname',
-        lastname = '$lastname',
+        lastname = '$lastname'
         WHERE id = '$userid'
         
         ");

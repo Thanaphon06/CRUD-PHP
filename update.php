@@ -77,7 +77,7 @@
         <?php
             }
         ?>
-        <button type="submit" name="insert">Insert</button>
+        <button type="submit" name="update">Insert</button>
     </form>
     </div>
 </body>
