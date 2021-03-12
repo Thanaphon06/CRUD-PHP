@@ -1,5 +1,28 @@
 <?php
-    include_once('functions.php')
+    include_once('functions.php');
+
+    $updatedata = new DB_con();
+
+    if(isset($_POST['update'])){
+        $userid = $_GET['id'];
+        $uuser = $_POST['username'];
+        $pword = $_POST['password'];
+        $fname = $_POST['firstname'];
+        $lname = $_POST['lastname'];
+
+        $sql = $updatedata->update($uuser, $pword, $fname, $lname, $userid);
+
+        if ($sql) {
+            echo "<script>alert('Updated Successfully!');</script>";
+            echo "<script>window.location.href='index.php'</script>";
+        } else {
+            echo "<script>alert('Something went wrong! Please try again!');</script>";
+            echo "<script>window.location.href='update.php'</script>";
+        }
+
+    }
+
+    
 
 ?>
 
@@ -19,10 +42,11 @@
         <h1>Update page</h1>
         <hr>
         <?php
-            $userid = $_GET['id'];
-            $updateuser = new DB_con();
-            $sql = $updateuser->fetchonerecord($userid);
-            while ($row = mysqli_fetch_array($sql)) {
+           $userid = $_GET['id'];
+           $updateuser = new DB_con();
+           
+           $sql = $updateuser->fetchonerecord($userid);
+           while($row = mysqli_fetch_array($sql)) {
                 
             
             
