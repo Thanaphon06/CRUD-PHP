@@ -4,15 +4,20 @@
 
     $insertdata = new DB_con();
 
-    if (isset($_POST['insert'])) {
+    if (isset($_POST['uploadfilesub'])) {
         
-        $uuser = $_POST['username'];
-        $pword = $_POST['password'];
-        $fname = $_POST['firstname'];
-        $lname = $_POST['lastname'];
+        $uuser = $_POST['book_name'];
+        $pword = $_POST['price'];
+        $fname = $_POST['image'];
+        $filename = $_FILES['uploadfile']['name'];
+        $filetmpname = $_FILES['uploadfile']['tmp_name'];
+        $folder = 'wakemeup/';
+
+        //move_uploaded_file($filetmpname, $folder.$filename);
+        
 
        
-        $sql = $insertdata->insert($uuser, $pword, $fname, $lname);
+        $sql = $insertdata->insert($uuser, $pword, $fname,$filetmpname, $folder.$filename);
 
         if ($sql) {
             echo "<script>alert('Record Inserted Successfully!');</script>";
@@ -23,6 +28,25 @@
         }
 
     }
+
+   // if(isset($_POST ['uploadfilesub'] )) {
+    //    $filename = $_FILES['uploadfile']['name'];
+     //   $filetmpname = $_FILES['uploadfile']['tmp_name'];
+     //   $folder = 'wakemeup/';
+
+    //    move_uploaded_file($filetmpname, $folder.$filename);
+    
+
+   // $sql = "INSERT INTO `book_naka`(`image`)
+   //  VALUES ('filename')";
+
+   // $qry = mysqli_query($conn, $sql);
+   // if($qry){
+    //    echo "image uploaded";
+    //}
+
+    
+
 
 ?>
 
@@ -49,23 +73,18 @@
         <form action="" method="post">
         
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" name="username" required>
+                <label for="book_name" class="form-label">Username</label>
+                <input type="text" class="form-control" name="book_name" required>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="text" class="form-control" name="password" required>
-            </div>
-            <div class="mb-3">
-                <label for="firstname" class="form-label">First name</label>
-                <input type="text" class="form-control" name="firstname" required>
-            </div>
-            <div class="mb-3">
-                <label for="lastname" class="form-label">Last name</label>
-                <input type="text" class="form-control" name="lastname" required>
+                <label for="price" class="form-label">Password</label>
+                <input type="text" class="form-control" name="price" required>
             </div>
             
-            <button type="submit" name="insert">Insert</button>
+            <form action="" method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadfile" />
+            <input type="submit" name="uploadfilesub" />
+            
         </form>
     </div>
 

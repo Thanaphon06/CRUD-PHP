@@ -11,11 +11,10 @@
     <table id="mytable" class="table table-bordered table-striped">
     <thead>
     <th>#</th>
-    <th>Username</th>
-    <th>Password</th>
+    <th>BookName</th>
+    <th>Price</th>
     <th>Firstname</th>
-    <th>Lastname</th>
-    <th>UserLevel</th>
+    
     <th>Edit</th>
     <th>Delete</th>
 
@@ -32,12 +31,11 @@
     ?>
 
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['password']; ?></td>
-                <td><?php echo $row['firstname']; ?></td>
-                <td><?php echo $row['lastname']; ?></td>
-                <td><?php echo $row['userlevel']; ?></td>
+                <td><?php echo $row['0']; ?></td>
+                <td><?php echo $row['1']; ?></td>
+                <td><?php echo $row['2']; ?></td>
+                <td><?php echo $row['3']; ?></td>
+                
                 <td><a href="update.php?id=<?php echo $row['id']; ?>">Edit</a></td>
                 <td><a href="delete.php?del=<?php echo $row['id']; ?>">Delete</a></td>
             </tr>

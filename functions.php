@@ -15,27 +15,27 @@
                 echo "Failed" . mysqli_connect_error();
             }
     }
-    public function insert($username,$password,$firstname, $lastname,) {
-        $result = mysqli_query($this->dbcon, "INSERT INTO user(id, username, password, firstname, lastname) VALUES('$id', '$username', '$password', '$firstname', '$lastname')");
+    public function insert($book_name,$price) {
+        $result = mysqli_query($this->dbcon, "INSERT INTO book_naka(book_name, price) VALUES('$book_name', '$price')");
         return $result;
     }
 
     public function fetchdata(){
-        $result = mysqli_query($this->dbcon, "SELECT * FROM user");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM book_naka");
         return $result;
     }
 
     public function fetchonerecord($userid){
-        $result = mysqli_query($this->dbcon, "SELECT * FROM user WHERE id = '$userid'");
+        $result = mysqli_query($this->dbcon, "SELECT * FROM book_naka WHERE id = '$userid'");
         return $result;
     }
 
-    public function update($username,$password,$firstname, $lastname, $userid){
-        $result = mysqli_query($this->dbcon, "UPDATE user SET 
-        username = '$username',
-        password = '$password',
-        firstname = '$firstname',
-        lastname = '$lastname'
+    public function update($book_name,$price,$image,$userid){
+        $result = mysqli_query($this->dbcon, "UPDATE book_naka SET 
+        book_name = '$book_name',
+        price = '$price',
+        image = '$image'
+
         WHERE id = '$userid'
         
         ");
