@@ -54,6 +54,12 @@ https://www.tooplate.com/view/2114-pixie
             <li class="nav-item">
               <a class="nav-link" href="contact.php">ที่อยู่ร้านเรา</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="imagepage.php">เพิ่มสินค้า</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="edit.php">แก้ไขสินค้า</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -73,7 +79,11 @@ https://www.tooplate.com/view/2114-pixie
         </div>
       </div>
     </div>
- 
+    <div class="featured container no-gutter">
+
+  <div class = "row">
+
+
 
     <?php
             $conn = mysqli_connect("localhost", "root", "", "student_spvc");
@@ -84,10 +94,11 @@ https://www.tooplate.com/view/2114-pixie
 
         ?>
 
+   
 
 
 
-    <div class="featured container no-gutter">
+  
 
         
             <div id = "1" class="item high col-md-4">
@@ -100,12 +111,14 @@ https://www.tooplate.com/view/2114-pixie
                 </div>
               </a>
             </div>
-            </div>
+            
+           
 
 <?php
 }
 ?>
-
+        </div> 
+        </div>    
       <!--      <div id="2" class="item high col-md-4">
               <a href="single-product1.php">
                 <div class="featured-item">

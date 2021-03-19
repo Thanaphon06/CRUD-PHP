@@ -5,12 +5,12 @@
 
     if(isset($_POST['update'])){
         $userid = $_GET['id'];
-        $uuser = $_POST['username'];
-        $pword = $_POST['password'];
-        $fname = $_POST['firstname'];
-        $lname = $_POST['lastname'];
+        $uuser = $_POST['book_name'];
+        $fname = $_POST['price'];
 
-        $sql = $updatedata->update($uuser, $pword, $fname, $lname, $userid);
+    
+
+        $sql = $updatedata->update($uuser, $fname, $lname, $userid);
 
         if ($sql) {
             echo "<script>alert('Updated Successfully!');</script>";
@@ -55,25 +55,16 @@
         <form action="" method="post">
         
         <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" name="username"
-                value="<?php echo $row['username'] ?>" required>
+            <label for="book_name" class="form-label">book name</label>
+            <input type="text" class="form-control" name="book_name"
+                value="<?php echo $row['book_name'] ?>" required>
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" name="password"
-                 value="<?php echo $row['password'] ?>" required>
+            <label for="price" class="form-label">Password</label>
+            <input type="text" class="form-control" name="price"
+                 value="<?php echo $row['price'] ?>" required>
         </div>
-        <div class="mb-3">
-            <label for="firstname" class="form-label">First name</label>
-            <input type="text" class="form-control" name="firstname"
-                value="<?php echo $row['firstname'] ?>" required>
-        </div>
-        <div class="mb-3">
-            <label for="lastname" class="form-label">Last name</label>
-            <input type="text" class="form-control" name="lastname" 
-                value="<?php echo $row['lastname'] ?>" required>
-        </div>
+     
         <?php
             }
         ?>
